@@ -15,6 +15,13 @@ namespace cuRotitaDeLaMouse
         int poz, raza, cx, cy;
         int[,] coord;
         int nr = 36;// numarul de pozitii posibile ale butonului
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Pen p = new Pen(Color.Red, 3);
+            e.Graphics.DrawLine(p, cx, cy, coord[poz, 0], coord[poz, 1]);
+        }
+
         public Form1()
         {
             
@@ -43,6 +50,7 @@ namespace cuRotitaDeLaMouse
             b1.Top = coord[poz, 1]; // mut butonul
             b1.Left = coord[poz, 0];
             Form1.ActiveForm.Text = "x= "+coord[poz,0].ToString(); // doar pentru verificare
+            Form1.ActiveForm.Invalidate();
         }
            
         private void Form1_Load(object sender, EventArgs e)
